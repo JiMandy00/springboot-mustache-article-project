@@ -65,4 +65,10 @@ public class ArticleController {
         }
     }
 
+    @PostMapping("/{id}/update")
+    public String update(@PathVariable Long id, ArticleDto articleDto) {
+        log.info("title:{} content:{}", articleDto.getTitle(), articleDto.getContetnt());
+        return "";
+    }
+
 }
