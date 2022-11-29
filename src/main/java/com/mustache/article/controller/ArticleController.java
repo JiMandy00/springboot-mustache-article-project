@@ -43,4 +43,14 @@ public class ArticleController {
         }
     }
 
+    @GetMapping("/list")
+    public String list() {
+        return "articles/list";
+    }
+
+    @GetMapping("")
+    public String index() {
+        return "redirect:/articles/list";
+    }
+
 }
