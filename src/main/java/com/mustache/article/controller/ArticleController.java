@@ -53,4 +53,16 @@ public class ArticleController {
         return "redirect:/articles/list";
     }
 
+    @GetMapping("/{id}/edit")
+    public String edit(@PathVariable Long id, Model model) {
+        Optional<Article> optArticle = articleRepository.findById(id);
+        if (!optArticle.isEmpty()) {
+            model.addAttribute("article", optArticle.get());
+            return "articles/edit";
+        } else {
+            model.addAttribute("message", String.format("%d가 없습니다.", id));
+            return "articles/error";
+        }
+    }
+
 }
