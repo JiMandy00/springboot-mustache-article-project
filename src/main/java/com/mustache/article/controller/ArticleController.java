@@ -23,7 +23,7 @@ public class ArticleController {
 
     @GetMapping("/new")
     public String createPage() {
-        return "articles/new";
+        return "new";
     }
 
     @PostMapping("")
@@ -37,15 +37,15 @@ public class ArticleController {
         Optional<Article> optArticle = articleRepository.findById(id);
         if (!optArticle.isEmpty()) {
             model.addAttribute("article", optArticle.get());
-            return "articles/show";
+            return "show";
         } else {
-            return "articles/error";
+            return "error";
         }
     }
 
     @GetMapping("/list")
     public String list() {
-        return "articles/list";
+        return "list";
     }
 
     @GetMapping("")
